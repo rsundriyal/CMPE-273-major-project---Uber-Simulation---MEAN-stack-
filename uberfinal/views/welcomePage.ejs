@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="welcome">
+  <head>
+    <title>Uber</title>
+    <script src="/angular/jquery.mini.js"></script>
+	<script src="/angular/angular.js"></script>
+	<script src="/angular/angular-animate.js"></script>
+	<script src="/angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/javascript/welcome.js"></script>
+	
+	<link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+	<link rel="shortcut icon" href="resource/pic/logo.ico" type="image/x-icon">
+  </head>
+  <body style="background:#070716;">
+  	<div align="center" ng-controller="loginCtrl">
+  		<img src="resource/pic/welcomePage_header.png" style="width:450px;margin-top:15px;"/>
+  		<br>
+  		<input type="button" value="LOG IN AS AN RIDER"  class="btn" ng-click="rider_log_in($event)"
+  			style = "background:#1fbad6;width:400px;height:60px;color:white;margin-top:40px;"/>
+  		<br>
+  		<input  type="button" value="LOG IN AS A DRIVER"  class="btn" ng-click="driver_log_in($event)"
+  			style = "background:#B2B2B2;width:400px;height:60px;color:white;margin-top:40px;"/>
+  			
+  			<br>
+  		<input  type="button" value="LOG IN AS A ADMIN"  class="btn" ng-click="admin_log_in($event)"
+  			style = "background:red;width:400px;height:60px;color:white;margin-top:40px;"/>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script type='text/javascript' src= "user_request.js"></script>
+  
+   
+
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  </head>
+
+<body ng-app="myApp" ng-controller="orderCtrl">
+<div class="blue">
+
+</div>
+<form  method="post"	action="back">
+   <input  id="gr" type ="submit" value="Back"/>
+ 	</form>
+<form  method="post"	action="logout">
+ 	  <input id="logout" type ="submit" value="logout"/>
+ 	</form>
+<p>Group Names Are:</p>
+<div class="container">
+
+  
+  <div class="col-sm-4"><table class="table table-striped">
+  <tbody ng-repeat="user in users"><tr  >
+    <td>{{ user.firstname }}</td>
+    <td>{{ user.lastname }}</td>
+     <td>{{ user.address }}</td>
+      <td>{{ user.city }}</td>
+       <td>{{ user.state }}</td>
+       <td>{{user.email}}</td>
+       <td><input type="radio" method="post" name={{$index}} ng-click="cal(user.lastname,'yes')"><br></td>
+   <td><input type="radio" method="post" name={{$index}} ng-click="cal(user.lastname,'no')"><br></td>
+  
+  </tr></tbody>
+</table>
+</div>
+</div>
+ 
+ 
+
+
+ 
+</html>	

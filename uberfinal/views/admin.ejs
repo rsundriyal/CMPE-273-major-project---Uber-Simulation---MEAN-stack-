@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <script type='text/javascript' src= "admin_details.js"></script> 
+  
+  <script>
+$(document).ready(function(){
+    $(".btn-primary").click(function(){
+        $(".collapse").collapse('toggle');
+    });
+  
+});
+    </script>
+  <style>
+body {
+	background-color: rgb(9, 9, 26);
+}
+</style>
+  </head>
+  <body>
+    <h1>Admin</h1>
+ <br>
+ <br>
+ <br>
+ <br>
+ 
+
+<div class="container"  ng-app="myApp" ng-controller="orderCtrl">
+<button type="button"  class="btn btn-primary"  id='admin' >Admin Details</button>
+
+  <div  class="collapse" ng-repeat="adm in admin">
+    
+<div class="well well-lg" id="admin1">
+  Id:{{ adm.admin_id }}<br>
+   First Name: {{ adm.firstname }}<br>
+   Last Name: {{ adm.lsatname }}<br>
+    Address: {{ adm.address }}<br>
+     City: {{ adm.city }}<br>
+      State: {{ adm.state }}<br>
+      Zipcode: {{ adm.zipcode }}<br>
+      Phone Number: {{ adm.phonenumber }}<br>
+       Email: {{ adm.email }}
+ </div> </div>
+  </div>
+ 
+
+  
+  
+  
+  
+    
+    <div class="row" id="well">
+
+  <div class="col-sm-3"><div class="well well-lg"><a href="driver_request">Driver Request <span class="badge"></span></a><br></div></div>
+
+  <div class="col-sm-3"><div class="well well-lg"><a ><form method="post" action="revenue" > <input id="logout" type ="submit" value="statistic"/> <span class="badge"></span></form></a><br></div></div>
+<div class="col-sm-3"><div class="well well-lg"><a ><form method="post" action="ridehistory" > <input id="logout" type ="submit" value="ride history"/> <span class="badge"></span></form></a><br></div></div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row" id="well">
+  <div class="col-sm-3"><div class="well well-lg"><a ><form method="post" action="search" ><input id="logout" type ="submit" value="Search"/><span class="badge"></span></form></a><br></div></div>
+  <div class="col-sm-3"><div class="well well-lg"><a ><form method="post" action="stats" > <input id="logout" type ="submit" value="Ride Statistics"/> <span class="badge"></span></form></a><br></div></div>
+ <div class="col-sm-3"><div class="well well-lg"><a ><form method="post" action="maps" > <input id="logout" type ="submit" value="maps"/> <span class="badge"></span></form></a><br></div></div>
+
+ 
+ 
+</div>
+
+
+
+
+
+  </body>
+</html>

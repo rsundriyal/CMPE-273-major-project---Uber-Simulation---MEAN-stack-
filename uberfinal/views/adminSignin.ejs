@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="driverSignInApp">
+<head>
+<title>Driver Sign In</title>
+<link rel="icon"
+	href="images/uber_icon.ico"
+	type="image/x-icon" />
+<script src="/angular/jquery.mini.js"></script>
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular-animate.js"></script>
+<script src="/angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/javascript/driverSignIn.js"></script>
+<link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+<style>
+body {
+	background-color: rgb(9, 9, 26);
+}
+
+label {
+	color: rgb(192, 192, 200);
+	font-weight: bold;
+	display: block;
+	width: 400px;
+	height: 20px;
+	float: left;
+}
+p {
+color:  rgb(192, 192, 200);}
+</style>
+</head>
+<body ng-controller="driverSignInCtrl">
+	<div class="content">
+		<div class="center-block" style="width: 400px; height: 139px">
+			<a href=#> <img src="images/uber.png" alt="UBER"
+				style="width: 400px; height: 107px;">
+			</a> <img src="images/signIn_logo.png" alt="Sign In"
+				style="width: 400px; height: 32px;">
+		</div>
+		<form method="POST" action="adminSignin">
+		<div class="center-block" style="width: 400px; height: 88px">
+			<label>EMAIL</label> <input type="text"  name="email"
+				class="form-control" placeholder="Email Address">
+		</div>
+		<div class="center-block" style="width: 400px; height: 88px">
+			<label>PASSWORD</label> <input type="password" name="password" 
+				class="form-control" placeholder="Password">
+		</div>
+		<div class="center-block" style="width: 400px; height: 100px">
+			<input type="submit" value ="SIGN IN"class="btn btn-block btn-info"></form>
+			<div class="alert alert-danger" ng-hide="invalid_login">
+								<strong>Incorrect username or password</strong>
+							</div>
+			<br>
+			<br>
+			<hr />
+			<br>
+			<br>
+		</div>
+
+	</div>
+
+</body>
+</html>

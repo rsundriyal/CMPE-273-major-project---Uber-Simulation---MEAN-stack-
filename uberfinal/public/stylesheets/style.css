@@ -1,0 +1,31 @@
+body {
+	color:#101010;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background:url("../images/admin_uber.jpg");
+  background-repeat:no-repeat;
+  background-size: 1280px 760px;
+}
+
+div {
+	
+opacity: 0.764467;	
+}
+
+#admin{
+position: absolute;
+    right: 0px;
+   
+    border: 3px solid ;
+}
+
+#admin1{
+position: absolute;
+    right: 0px;
+   top:300px;
+    border: 3px solid ;
+}
+
+a {
+  color: #00B7FF;
+}

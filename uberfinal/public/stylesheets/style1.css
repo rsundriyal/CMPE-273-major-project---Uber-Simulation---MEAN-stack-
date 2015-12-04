@@ -1,0 +1,30 @@
+	body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.visa{
+	background-image: url("../images/visa.png");
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 50px;
+    background-size: 100% 100%;
+}
+.abc81{
+	height: 20px;
+}
+table,td,tr{
+	border: 0px solid;
+	border-collapse:collapse;
+}
+.bill{
+	height: 10px;
+}
+.abc12,.abc13, .abc14 ,.abc15,.abc17, .abc18 ,.abc16{
+	height: 8px;
+	width: 150px
+	
+}

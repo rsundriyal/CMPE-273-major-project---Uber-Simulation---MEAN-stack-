@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Uber</title>
+    <script src="/angular/jquery.mini.js"></script>
+	<script src="/angular/angular.js"></script>
+	<script src="/angular/angular-animate.js"></script>
+	<script src="/angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	<link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+	<link rel="shortcut icon" href="resource/pic/logo.ico" type="image/x-icon">
+	<link rel='stylesheet' href='stylesheets/driver.css' />
+	<script>
+		function checkZipCode(){
+			var zipCode = $(".zipcode").val();
+			var zipCodeCheck =/(^\d{5}$)|(^\d{5}-\d{4}$)/; 
+			if(!zipCodeCheck.test(zipCode))
+				alert("Error!Wrong zip code format! Please check it");
+		} 
+		
+		function checkEmailFormat(){
+			var email = $('.email').val();
+			var emailCheck = /[_a-zA-Z\d\-\.]+@[_a-zA-Z\d\-]+(\.[_a-zA-Z\d\-]+)+$/; 
+			if(!emailCheck.test(email))
+				alert("Error!Wrong email format! Please check it");
+		}
+		
+		function ValidState() {
+		
+			var state = $('#state').val();
+			
+			var states = {
+			    "AL": "Alabama",
+			    "AK": "Alaska",
+			    "AS": "American Samoa",
+			    "AZ": "Arizona",
+			    "AR": "Arkansas",
+			    "CA": "California",
+			    "CO": "Colorado",
+			    "CT": "Connecticut",
+			    "DE": "Delaware",
+			    "DC": "District Of Columbia",
+			    "FM": "Federated States Of Micronesia",
+			    "FL": "Florida",
+			    "GA": "Georgia",
+			    "GU": "Guam",
+			    "HI": "Hawaii",
+			    "ID": "Idaho",
+			    "IL": "Illinois",
+			    "IN": "Indiana",
+			    "IA": "Iowa",
+			    "KS": "Kansas",
+			    "KY": "Kentucky",
+			    "LA": "Louisiana",
+			    "ME": "Maine",
+			    "MH": "Marshall Islands",
+			    "MD": "Maryland",
+			    "MA": "Massachusetts",
+			    "MI": "Michigan",
+			    "MN": "Minnesota",
+			    "MS": "Mississippi",
+			    "MO": "Missouri",
+			    "MT": "Montana",
+			    "NE": "Nebraska",
+			    "NV": "Nevada",
+			    "NH": "New Hampshire",
+			    "NJ": "New Jersey",
+			    "NM": "New Mexico",
+			    "NY": "New York",
+			    "NC": "North Carolina",
+			    "ND": "North Dakota",
+			    "MP": "Northern Mariana Islands",
+			    "OH": "Ohio",
+			    "OK": "Oklahoma",
+			    "OR": "Oregon",
+			    "PW": "Palau",
+			    "PA": "Pennsylvania",
+			    "PR": "Puerto Rico",
+			    "RI": "Rhode Island",
+			    "SC": "South Carolina",
+			    "SD": "South Dakota",
+			    "TN": "Tennessee",
+			    "TX": "Texas",
+			    "UT": "Utah",
+			    "VT": "Vermont",
+			    "VI": "Virgin Islands",
+			    "VA": "Virginia",
+			    "WA": "Washington",
+			    "WV": "West Virginia",
+			    "WI": "Wisconsin",
+			    "WY": "Wyoming"
+			}
+			
+			if(states[state.toUpperCase()]==undefined) {
+				var find = false;
+				for(var x in states){
+					if(states[x].toUpperCase() ==state.toUpperCase()) {
+					  find=true;
+					  break;
+					}
+				}
+				if(find == false)
+					alert("Error! Wrong State, please check it");
+			}
+		}
+
+	</script>
+  </head>
+  <body>
+  	<section>
+	  <header>
+	  	<img class ="uber text" src = "resource/pic/uber.png" >
+	  </header>	  
+  	</section>
+  	
+  	<section class = "ads">
+	  <img src="resource/pic/driver_head_icon.png" class="img-circle" alt="Cinque Terre" width="80" height="80">
+  	</section>
+  	
+  	<section>
+	  <p class = "ads text">RICARDO SENT<br> YOU $600</p>
+	  <p class = "ads sub-text">To claim your cash, sign up to drive today.</p>
+  	</section>
+  	
+  	<section class = "regist form">
+  		<div class="panel panel-default">
+  			<div class="panel-heading">
+  				<p class="form header">SIGN UP TO DRIVE</p>
+			</div>
+			
+			<div align = "right">
+				<form action="driver_registration" method="post">
+					<table cellspacing="0">
+						<tr>
+							<td>
+								<input type="text" class ="first name" placeholder=" First Name" name="first_name"/>
+							</td>
+							<td>
+								<input type="text" class = "last name" placeholder=" Last Name" name="last_name"/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="padding-top: 20px">
+								<input type="text" class = "email" placeholder=" Email" name="email" onblur="checkEmailFormat()"/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="text" class = "phone" placeholder=" Phone" name="phone"/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"><input class = "password" type="password" name="password" placeholder=" Password"/></td>
+						</tr>
+						<tr><td colspan="2"> <input class = "address" type="text" name="address" placeholder=" Address"/></td></tr>
+						<tr>
+							<td>
+								<input class = "city" type="text" name="city" placeholder=" City"/>
+							</td>
+							<td>
+								<input class = "state" id="state" type="text" name="state" placeholder=" State" onblur="ValidState()"/></td>
+							<td>
+								<input class = "zipcode" type="text" name="zipcode" placeholder=" Zipcode" onblur="checkZipCode()"  /></td>
+								
+						</tr>
+
+						<tr>
+							<td>
+								<div>
+									<select class="form-control" id="hear">
+										<option value="0"> Where did you hear about us?</option>
+										<option value="01">Podcast</option>
+										<option value="02">Family + Friend</option>
+										<option value="03">Mail</option>
+										<option value="04">Email</option>
+										<option value="05">TV ad</option>
+										<option value="06">Internet ad</option>
+										<option value="07">Radio</option>
+										<option value="08">YouTube</option>
+										<option value="09">Other</option>
+									</select> 
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="2" ><input type="submit" value="Next" id="sign_up" class="btn"/></td>
+						</tr>
+						
+						<tr>
+							<td colspan="2"><p class="sign in">Already have an account?<a href="/driverSignIn"> Sign in</a></p></td>
+						</tr>
+
+					</table>
+				</form>
+			</div>
+					
+		</div>
+  	</section>
+  	
+  	
+  	<section class = "video">
+	    <video id="video" loop="" preload="" autoplay="" width="100%" height="auto">
+	      <source src="resource/video/driver_registration_video.mp4" type="video/mp4">
+	    </video>
+    </section>
+   
+    <section>
+	  <img class ="uber car" src = "resource/pic/car.png" >
+  	</section>
+  	
+  	<div class="intro">
+		<div>
+			<p class="title">WHAT IS UBER?</p>
+			<p class="content">
+				Uber is a smartphone app that makes it easy to get paid for driving your own car.<br>
+			 	It's simple to use. When you want to make money just turn on the app and pick up <br>
+			 	riders. You'll see how much you made after every ride and you'll get paid weekly.
+			 </p>
+		</div>
+		
+		<div>
+			<p class="title">WHY DRIVE WITH UBER?</p>
+			<table class="introtable">
+				<tr>
+					<td>
+						<p class="sub-title">Flexible Schedule</p>
+						<p class = "sub-content">No set hours. Day or night, you’ll always start &<br> stop on your time.</p>
+					</td>
+					<td style="padding-left:80px;">
+						<p class="sub-title">Make money when you want</p>
+						<p class = "sub-content">You’re the boss. You get to decide how often you<br> want to drive and earn.</p>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<p class="sub-title">Automatic GPS navigation</p>
+						<p class = "sub-content">Get clear directions around town with easy to<br> follow turn-by-turn navigation.</p>
+					</td>
+					<td style="padding-left:80px;">
+						<p class="sub-title">Partner discounts</p>
+						<p class = "sub-content">Save on gas, auto maintenance, phone plans, and<br> 
+						more with special Uber partner rewards where<br> available.</p>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<p class="sub-title">All riders are registered</p>
+						<p class = "sub-content">Every rider is rated by driver-partners like you.<br>
+						 You’ll always know the name & rating of your<br> passengers.</p>
+					</td>
+					<td style="padding-left:80px;">
+						<p class="sub-title">End-to-end insurance coverage</p>
+						<p class = "sub-content">Get industry-leading coverage with $1M of<br> commercial auto insurance on every rideshare trip.</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+	
+	</div>
+	<img src="resource/pic/phone.png" class="phoneimg" ></img>
+	
+	<hr style="margin-left:100px;margin-right:100px;margin-top:770px;">
+	
+	<img  src="resource/pic/bottom.png" style="height:160px;margin-left:100px;"></img>
+	
+	<div style="width:100%;background:#1FBAD6; height:120px;margin-top:40px;" align="center">
+		<input type="button" style="margin-top:40px;border-width: 2px;border-color: white;border-radius: 3px;" type="submit" 
+		onclick="toTop()" value="SIGN  UP  TO  DRIVE " id="to_top"class="btn" />
+	</div>
+	
+	<div style="width:100%;background:black; height:60px;">
+		<p style="color:white;margin-left:100px;padding-top:20px;">Uber Copyright © Renlong Zhang</p>
+	</div>
+  	
+  </body>
+  <script>
+  function toTop(){
+        window.scroll(0,0);
+        }
+  </script>
+</html>

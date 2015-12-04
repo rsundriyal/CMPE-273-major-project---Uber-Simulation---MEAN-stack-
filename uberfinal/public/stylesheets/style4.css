@@ -1,0 +1,201 @@
+#mainOutline
+{
+	border: 2px solid #999999;
+	height: 620px;
+	width: 600px;
+	position: absolute;	
+}
+
+#innerOutline1
+{
+	border: solid #a6a6a6;
+	border-width: 0px 0px 2px 0px;
+	height: 327px;
+	width: 300px;
+}
+
+#innerOutline2
+{
+	border: solid #a6a6a6;
+	border-width: 0px 0px 2px 0px;
+	height: 327px;
+	width: 300px;
+	margin-left: 300px;
+	margin-top: -329px;
+}
+
+#innerOutline3
+{
+	border: #cccccc;
+	width: 300px;
+	height: 300px;
+}
+
+#innerOutline4
+{
+	border: #cccccc;
+	border-left-width: 1px;
+	height: 300px;
+	width: 300px;
+	margin-left: 300px;
+	margin-top: -329px;
+}
+
+#thanks
+{
+	font-size: 11pt;
+	font-family: arial black;
+	padding-left: 15px;
+}
+
+.headings1
+{
+	padding-left: 15px;
+	padding-top: 5px;
+	font-family: calibri;
+	font-size: 10pt;
+	margin-top: -5px;
+	color: #a6a6a6;
+}
+
+.values1
+{
+	padding-left: 15px;
+	font-family: arial;
+	font-size: 10pt;
+	margin-top: -13px;
+}
+
+#illedToCardValue
+{
+	font-family: arial;
+	font-size: 15pt;
+	font-weight: bold;
+}
+
+
+.headings2
+{
+	padding-left: 5px;
+	padding-top: 5px;
+	font-family: calibri;
+	font-size: 10pt;
+	margin-top: -50px;
+	margin-left: 60px;
+	color: #a6a6a6;
+}
+
+.values2
+{
+	padding-left: 5px;
+	font-family: arial;
+	font-size: 10pt;
+	margin-top: -13px;
+	margin-left: 60px;
+}
+
+#reBreakdown
+{
+	font-size: 11pt;
+	font-family: arial black;
+	padding-left: 15px;
+}
+
+#tripStatistics
+{
+	
+	font-size: 11pt;
+	font-family: arial black;
+	padding-left: 15px;
+	margin-top: 30px;
+}
+
+.headings3
+{
+	padding-left: 15px;
+	padding-top: 5px;
+	font-family: calibri;
+	font-size: 10pt;
+	margin-top: -10px;
+	color: #a6a6a6;
+}
+
+.values3
+{
+	padding-left: 15px;
+	font-family: arial;
+	font-size: 10pt;
+	margin-top: -13px;
+	padding-top:2px;
+}
+
+#seFareValue, #istanceValue, #timeValue, #roundingDownValue
+{
+	margin-right: 10px;
+	margin-top: -30px;
+	font-family: arial;
+	font-size: 10pt;
+	text-align: right;
+	padding-top: 2px;
+}
+
+hr
+{
+	width: 273px;
+	margin-top: -10px;
+	color: #a6a6a6;
+}
+
+.discount
+{
+	padding-left: 15px;
+	margin-top: -10px;
+	font-family: arial;
+	font-size: 10pt;
+	font-weight: bold;
+	padding-top: 2px;
+}
+
+#iscountValue, #totalFareValue, #illedToCardValue2, #outstandingBalValue
+{
+	margin-right: 10px;
+	margin-top: -30px;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 10pt;
+	text-align: right;
+	padding-top: 4px;
+}
+
+#totals
+{
+	padding-left: 15px;
+	font-family: calibri;
+	font-size: 10pt;
+	color: #a6a6a6;
+}
+
+#illedToCard2, #outstandingBal
+{
+	margin-top: -15px;
+}
+
+.headings4
+{
+	padding-left: 15px;
+	padding-top: 5px;
+	font-family: calibri;
+	font-size: 10pt;
+	margin-top: -10px;
+	color: #a6a6a6;
+}
+
+.values4
+{
+	font-family: arial;
+	font-size: 16pt;
+	font-weight: bolder;
+	padding-left: 15px;
+	margin-top: -15px;
+	padding-top: 5px;
+}

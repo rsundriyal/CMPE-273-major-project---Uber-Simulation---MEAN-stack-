@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script type='text/javascript' src= "adminsearch.js"></script>
+  
+
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+          <style>
+body {
+	background-color: rgb(9, 9, 26);
+}
+</style>  
+
+  </head>
+
+<body ng-app="myApp" ng-controller="orderCtrl">
+<div class="blue">
+
+</div>
+
+<div class="container">
+
+  <div class="row" id="well">
+  <div class="col-sm-4">
+  <div class="well well-lg">
+  <form method="post"	>
+   Enter Driver ID <br><input type ="text"  name="search driver" ng-model="id" />
+ 	<input type ="submit" value="search" ng-click="driver(id)"/>
+ 	</form>
+</div>
+</div>
+  <div class="col-sm-4">
+  <div class="well well-lg">
+ 	<form method="post"	>
+    Enter User ID<br><input type ="text" value="user id" name="search user" ng-model="userid" />
+ 	<input type ="submit" value="search" ng-click="customer(userid)"/>
+ 	
+ 	</form>
+ 	</div>
+</div>
+
+  <div class="col-sm-4">
+  <div class="well well-lg">
+ 	<form >
+    Enter Bill ID<br><input type ="number" value="bill id" name="search bill" ng-model="billid" />
+ 	<input type ="submit" value="search" ng-click="bill(billid)"/>
+ 	
+ 	</form>
+ 	</div>
+</div>
+ </div>
+
+  <div class="row" id="well">
+  <div class="col-sm-4"> 
+ <p ng-hide="myVar">
+Driver ID: {{driver[0].driver_id}}<br>
+Firstname: {{driver[0].firstname}}<br>
+Lastname: {{driver[0].lastname}}<br>
+Email: {{driver[0].email}}<br>
+Phone: {{driver[0].phone}}<br>
+City: {{driver[0].city}}<br>
+<form method="post" action="delete_driver">
+<button name="driver_id" type="submit" value={{driver[0].driver_id}}>delete Driver</button>
+
+</form>
+</p>
+</div>
+
+
+
+  <div class="col-sm-4">
+ <p ng-hide="myVar2">
+Bill ID: {{customer[0].customer_id}}<br>
+Start Time: {{customer[0].firstname}}<br>
+End Time: {{customer[0].lastname}}<br>
+Phone: {{customer[0].phone}}<br>
+Address: {{customer[0].address}}<br>
+City: {{customer[0].city}}<br>
+zipcode: {{customer[0].zipcode}}<br>
+state: {{customer[0].state}}<br>
+<form method="post" action="delete_customer">
+<button name="customer_id" type="submit" value={{customer[0].customer_id}}>delete customer</button>
+
+</form>
+</p>
+ </div>
+ 
+   <div class="col-sm-4">
+  
+ <p ng-hide="myVar1">
+Bill ID: {{bill[0].bill_id}}<br>
+Start Time: {{bill[0].start_time}}<br>
+End Time: {{bill[0].end_time}}<br>
+Distance: {{bill[0].distance}}<br>
+Price: {{bill[0].price}}<br>
+Origin: {{bill[0].origin}}<br>
+Destination: {{bill[0].destination}}<br>
+<form method="post" action="delete_bill">
+<button name="bill_id" type="submit" value={{bill[0].bill_id}}>delete Bill</button>
+
+</form>
+</p>
+</div>
+ </body>
+</html>	

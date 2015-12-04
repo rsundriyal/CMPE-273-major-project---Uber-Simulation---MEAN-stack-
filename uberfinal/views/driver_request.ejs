@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script type='text/javascript' src= "driver_request.js"></script>
+  
+   
+
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+body {
+	background-color: rgb(9, 9, 26);
+}
+</style>
+  </head>
+
+<body ng-app="myApp" ng-controller="orderCtrl">
+<div class="blue">
+
+</div>
+<a style="color: rgb(255, 255, 255)"
+						href="/logout">Log out</a>
+<p>Driver Requests are:</p>
+<div class="container">
+
+  
+  <div class="col-sm-4"><table class="table table-striped">
+  <td>First Name</td>
+    <td>Last Name</td>
+      <td>Address</td>
+        <td>City </td>
+          <td>State </td>
+            <td>Email </td>
+              <td>Phone </td>
+                <td>Accept</td>
+                  <td>Reject</td>
+  <tbody ng-repeat="driver in drivers"><tr  >
+    <td>{{ driver.firstname }}</td>
+    <td>{{ driver.lastname }}</td>
+     <td>{{ driver.address }}</td>
+      <td>{{ driver.city }}</td>
+       <td>{{ driver.state }}</td>
+       <td>{{ driver.email }}</td>
+       <td>{{ driver.phone}}</td>
+       <td><input type="radio" method="post" ng-click="cal(driver.email,'yes')"><br></td>
+   <td><input type="radio" method="post"  ng-click="cal(driver.email,'no')"><br></td>
+  
+  </tr></tbody>
+</table>
+</div>
+</div>
+ 
+ 
+
+
+ 
+</html>	

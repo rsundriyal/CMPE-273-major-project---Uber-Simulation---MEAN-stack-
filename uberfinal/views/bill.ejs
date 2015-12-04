@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html ng-app="billApp">
+<head>
+<link rel="stylesheet" type="text/css" href='/stylesheets/style4.css' />
+
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script
+	src="http://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js"></script>
+<script
+	src="http://maps.google.com/maps/api/js?libraries=placeses,visualization,drawing,geometry,places"></script>
+<script type='text/javascript' src="getbill.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+<script
+	src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+<title>BILL</title>
+<link rel='stylesheet' href='/stylesheets/style1.css' />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+
+
+<body ng-controller="billCtrl">
+	<div id="mainOutline">
+		<div id="upperDiv">
+			<div id="innerOutline1">
+				<p id="thanks">Thanks for riding Uber!</p>
+
+				<p id="billedTo" class="headings1">BILLED TO</p>
+				<p id="billedToValue" class="values1">{{customer_name}}</p>
+
+				<p id="tripReqDate" class="headings1">TRIP REQUEST DATE</p>
+				<p id="tripReqDateValue" class="values1">{{date}}</p>
+
+				<p id="pickupLoc" class="headings1">PICKUP LOCATION</p>
+				<p id="pickupLocValue" class="values1">{{origin}}</p>
+
+				<p id="dropoffLoc" class="headings1">DROPOFF LOCATION</p>
+				<p id="dropoffLocValue" class="values1">{{destination}}</p>
+
+				<p id="creditCard" class="headings1">CREDIT CARD</p>
+				<p id="creditCardValue" class="values1">
+					<img src="/images/visa.png" class="img-rounded" alt="img1"
+						width="40" height="40"> Business Visa
+				</p>
+
+				<p id="billedToCard" class="headings1">BILLED TO CARD</p>
+				<p id="illedToCardValue" class="values1">${{total}}</p>
+			</div>
+			<div id="innerOutline2">
+				<img src="/get_bill_image"
+					style="width: 50px; height: 50px; border: 1px solid #cccccc">
+				<p id="driver" class="headings2">DRIVER</p>
+				<p id="driverValue" class="values2">{{driver_name}}</p>
+				<ng-map center={{origin}} style="width:295px;height:275px">
+				<directions draggable="false" panel="directions-panel"
+					travel-mode="DRIVING" origin="{{origin}}"
+					destination="{{destination}}"> </directions> </ng-map>
+			</div>
+		</div>
+		<div id="lowerDiv">
+			<div id="innerOutline3">
+				<p id="reBreakdown">Fare Breakdown</p>
+				<p id="charges" class="headings3">CHARGES</p>
+				<p id="baseFare" class="values3">Base Fare</p>
+				<p id="seFareValue">$1.00</p>
+				<p id="distance" class="values3">Distance</p>
+				<p id="istanceValue">${{price}}</p>
+				<p id="time" class="values3">Time</p>
+				<p id="timeValue">$1.00</p>
+
+				<hr>
+
+				<p id="totals">TOTALS</p>
+				<p id="totalFare" class="discount">Total Fare</p>
+				<p id="totalFareValue" class="discount">${{total}}</p>
+				<p id="illedToCard2" class="discount">Billed To Card</p>
+				<p id="illedToCardValue2" class="discount">${{total}}</p>
+
+			</div>
+			<div id="innerOutline4">
+				<p id="tripStatistics">Trip Statistics</p>
+				<p id="distance2" class="headings4">DISTANCE</p>
+				<p id="distance2Value" class="values4">{{distance}} km</p>
+				<p id="duration" class="headings4">DURATION</p>
+				<p id="durationValue" class="values4">{{end_time[0]}}
+					hr:{{end_time[1]}} mins</p>
+				<p id="avgSpeed" class="headings4">AVERAGE SPEED</p>
+				<p id="avgSpeedValue" class="values4">{{speed}} kmph</p>
+			</div>
+		</div>
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+			data-target="#myModal">Write a Review</button>
+			<button class="btn btn-info" ng-click="pay()">Pay Now</button>
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Write a Review for Driver</h4>
+					</div>
+					<div class="modal-body">
+						<div ng-init="x = 3">
+							<uib-rating ng-model="x" max="5" state-on="'glyphicon-ok-sign'"
+								state-off="'glyphicon-ok-circle'"
+								aria-labelledby="custom-icons-1"></uib-rating>
+							<b>(<i>Rate:</i> {{x}})
+							</b>
+						</div>
+						<textarea name="review" cols="40" rows="4" ng-model="review"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-info" ng-click="submit_review()">Review</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

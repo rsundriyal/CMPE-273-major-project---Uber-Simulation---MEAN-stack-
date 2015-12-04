@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Polylines</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+// This example creates a 2-pixel-wide red polyline showing the path of William
+// Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
+// Brisbane, Australia.
+
+function initMap() {
+
+
+$(document).ready(function(){
+ 
+        $.getJSON("http://localhost:3001/charts").success(function(data){
+	
+console.log(data[0]);
+var data1 = [];
+	var data2 = [];
+		var data3 = [];
+		var data4 = [];
+for(i=0; i<data.length;i++)
+				{
+				
+				data3.push(parseFloat(data[i].start_lng));
+				data2.push(parseFloat(data[i].start_lat));
+				data1.push(parseFloat(data[i].destination_lng));
+				data4.push(parseFloat(data[i].destination_lat));
+				}
+		var lat1=data2;
+		 var lng1=data3;
+		   var lat2= data4;
+		   var lng2= data1;
+		   console.log(lat1);
+		   console.log(lng1);
+		   console.log(lat2);
+		   console.log(lng2);
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: {lat: 37.33, lng: -122},
+
+  });
+ var symbolOne = {
+    path: 'M -2,0 0,-2 2,0 0,2 z',
+    strokeColor: '#29088A',
+    fillColor: '#29088A',
+    fillOpacity: 1
+  };
+
+  var symbolTwo = {
+    path: 'M -1,0 A 1,1 0 0 0 -3,0 1,1 0 0 0 -1,0M 1,0 A 1,1 0 0 0 3,0 1,1 0 0 0 1,0M -3,3 Q 0,5 3,3',
+    strokeColor: '#086A87',
+    rotation: 45
+  };
+
+  var symbolThree = {
+    path: 'M -2,-2 2,2 M 2,-2 -2,2',
+    strokeColor: '#29088A',
+    strokeWeight: 4
+  };
+  var iconsetngs = {
+    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+};
+
+  
+for(var i=0; i<lat1.length; i++)
+{
+  var flightPlanCoordinates = [
+    {lat: lat1[i], lng: lng1[i]},
+  
+    {lat: lat2[i], lng: lng2[i]}
+  ];
+  var flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0040',
+    geodesic: true,
+    strokeOpacity: 1.0,
+    strokeWeight: 2,
+    icons: [
+      {
+        icon: symbolOne,
+        offset: '0%'
+      },  {
+        icon: symbolThree,
+        offset: '100%'
+      }
+    ],
+    
+    
+  });
+    flightPath.setMap(map);
+
+ animateCircle(flightPath);
+
+}
+
+});
+   
+});
+}
+
+function animateCircle(flightPath) {
+    var count = 0;
+    window.setInterval(function() {
+      count = (count + 1) % 200;
+
+      var icons = flightPath.get('icons');
+      icons[0].offset = (count / 2) + '%';
+      flightPath.set('icons', icons);
+  }, 20);
+}
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3wFd2SjiCAqbFrm8GgeZJ0RuGHSguDSQ&signed_in=true&callback=initMap"></script>
+ 
+ Heading: <input type="text" readonly id="heading"> degrees
+  </body>
+</html>

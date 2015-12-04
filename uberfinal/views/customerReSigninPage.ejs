@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/angular/jquery.mini.js"></script>
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular-animate.js"></script>
+<script src="/angular/ui-bootstrap-tpls-0.13.4.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+<title>Sign Up to Ride With Uber Today | Uber</title>
+<link rel="icon" href="images/uber_icon.ico" type="image/x-icon" />
+<script>
+		function checkZipCode(){
+			var zipCode = $("#zipcode").val();
+			var zipCodeCheck =/(^\d{5}$)|(^\d{5}-\d{4}$)/; 
+			if(!zipCodeCheck.test(zipCode))
+				alert("Error!Wrong zip code format! Please check it");
+		} 
+		
+		function checkEmailFormat(){
+			var email = $('#email').val();
+			var emailCheck = /[_a-zA-Z\d\-\.]+@[_a-zA-Z\d\-]+(\.[_a-zA-Z\d\-]+)+$/; 
+			if(!emailCheck.test(email))
+				alert("Error!Wrong email format! Please check it");
+		}
+		
+		function ValidState() {
+		
+			var state = $('#state').val();
+			
+			var states = {
+			    "AL": "Alabama",
+			    "AK": "Alaska",
+			    "AS": "American Samoa",
+			    "AZ": "Arizona",
+			    "AR": "Arkansas",
+			    "CA": "California",
+			    "CO": "Colorado",
+			    "CT": "Connecticut",
+			    "DE": "Delaware",
+			    "DC": "District Of Columbia",
+			    "FM": "Federated States Of Micronesia",
+			    "FL": "Florida",
+			    "GA": "Georgia",
+			    "GU": "Guam",
+			    "HI": "Hawaii",
+			    "ID": "Idaho",
+			    "IL": "Illinois",
+			    "IN": "Indiana",
+			    "IA": "Iowa",
+			    "KS": "Kansas",
+			    "KY": "Kentucky",
+			    "LA": "Louisiana",
+			    "ME": "Maine",
+			    "MH": "Marshall Islands",
+			    "MD": "Maryland",
+			    "MA": "Massachusetts",
+			    "MI": "Michigan",
+			    "MN": "Minnesota",
+			    "MS": "Mississippi",
+			    "MO": "Missouri",
+			    "MT": "Montana",
+			    "NE": "Nebraska",
+			    "NV": "Nevada",
+			    "NH": "New Hampshire",
+			    "NJ": "New Jersey",
+			    "NM": "New Mexico",
+			    "NY": "New York",
+			    "NC": "North Carolina",
+			    "ND": "North Dakota",
+			    "MP": "Northern Mariana Islands",
+			    "OH": "Ohio",
+			    "OK": "Oklahoma",
+			    "OR": "Oregon",
+			    "PW": "Palau",
+			    "PA": "Pennsylvania",
+			    "PR": "Puerto Rico",
+			    "RI": "Rhode Island",
+			    "SC": "South Carolina",
+			    "SD": "South Dakota",
+			    "TN": "Tennessee",
+			    "TX": "Texas",
+			    "UT": "Utah",
+			    "VT": "Vermont",
+			    "VI": "Virgin Islands",
+			    "VA": "Virginia",
+			    "WA": "Washington",
+			    "WV": "West Virginia",
+			    "WI": "Wisconsin",
+			    "WY": "Wyoming"
+			}
+			
+			if(states[state.toUpperCase()]==undefined) {
+				var find = false;
+				for(var x in states){
+					if(states[x].toUpperCase() ==state.toUpperCase()) {
+					  find=true;
+					  break;
+					}
+				}
+				if(find == false)
+					alert("Error! Wrong State, please check it");
+			}
+		}
+		
+			
+	</script>
+</head>
+
+<body>
+	<header style="background-color: rgb(0, 0, 0);" align=center>
+		<img src="images/customer/uber_header.png" alt="UBER"><br>
+
+	</header>
+	<div align=center>
+		<div>
+			<p
+				style="margin-top:10px;width: 400px; color: red; border: 1px solid blue; border-radius: 3px;">
+				The email you used has been already occupied by others.<br>Please
+				choose another one
+			</p>
+		</div>
+	</div>
+	<div class="content">
+		<div class="center-block" style="width: 680px">
+			<img src="images/customer/uber_pic1.png">
+		</div>
+		<div class="center-block" style="width: 500px">
+			<form action="customer_registration" method="post">
+				<p>
+					<strong>Account</strong>
+				</p>
+				<label>*EMAIL</label> <input type="text" name="email" id="email" onblur="checkEmailFormat()"
+					class="form-control" placeholder="Email Address"> <label>*PASSWORD</label>
+				<input type="password" name="password" class="form-control"
+					placeholder="Password">
+				<p>
+					<strong>Profile</strong>
+				</p>
+				<label>*NAME</label>
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" name="firstname" class="form-control"
+							placeholder="First Name">
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="lastname" class="form-control"
+							placeholder="Last Name">
+					</div>
+				</div>
+				<label>*MOBILE NUMBER</label> <input type="text" name="phone"
+					class="form-control" placeholder="5109999999"> <label>*ADDRESS</label>
+				<input type="text" name="address" class="form-control"
+					placeholder="40640 11th Street">
+				<div class="row" style="margin-top:10px;">
+					<div class="col-md-4">
+						<input type="text" name="city" class="form-control"
+							placeholder="San Jose">
+					</div>
+					<div class="col-md-4">
+						<input type="text" name="state" class="form-control" id="state" onblur="ValidState()"
+							placeholder="CA">
+					</div>
+					<div class="col-md-4">
+						<input type="text" name="zipcode" class="form-control" id="zipcode" onblur="checkZipCode()"
+							placeholder="94538">
+					</div>
+				</div>
+				<p>
+					<strong>PAYMENT</strong>
+				</p>
+				<div class="row">
+					<div class="col-md-9">
+						<label>*CREDIT CARD NUMBER</label> <input type="text"
+							name="creditcard" class="form-control"
+							placeholder="1234567890123546">
+					</div>
+					<div class="col-md-3">
+						<label>*CVV</label> <input type="text" name="cvv"
+							class="form-control" placeholder="123">
+					</div>
+				</div>
+				<label>*EXPIRATION DATE</label>
+				<div class="row">
+
+					<div class="col-md-6">
+						<input type="text" name="creditcard_month" class="form-control"
+							placeholder="01">
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="creditcard_year" class="form-control"
+							placeholder="2019">
+					</div>
+				</div>
+				<input type="submit" class="btn btn-block btn-info" style="margin-top:10px;"
+					value="CREATE ACCOUNT" />
+			</form>
+			<span style="color:red;">Please fill out all required (*) fields.</span>
+		</div>
+	</div>
+</body>
+</html>
